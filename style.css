@@ -57,14 +57,14 @@ body {
 }
 
 .profile-logo {
-    width: 90px;
-    height: 90px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%; /* لجعل الصورة دائرية */
     object-fit: cover; /* لضمان عدم تشوه الصورة */
     border: 4px solid #fff; /* حدود بيضاء حول صورة البروفايل */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* ظل لصورة البروفايل */
     position: absolute; /* لتحديد موضعها بالنسبة لـ header-bg */
-    bottom: -45px; /* لكي تظهر نصفها داخل وخارج منطقة الخلفية */
+    bottom: -80px; /* لكي تظهر نصفها داخل وخارج منطقة الخلفية */
     z-index: 2; /* لجعلها فوق جميع عناصر الهيدر */
 }
 
@@ -177,7 +177,7 @@ h1 {
 /* ----- أنماط قسم سابقة الأعمال (Portfolio Section) ----- */
 .portfolio-section {
     padding: 25px;
-    background-color: #fff; /* خلفية بيضاء لقسم سابقة الأعمال */
+    background-color: #f9f9f9; /* خلفية بيضاء لقسم سابقة الأعمال */
     border-radius: 0 0 15px 15px; /* استمرار استدارة الزوايا السفلية للبطاقة */
     margin-top: -15px; /* لجعلها تلتصق بالقسم الذي قبلها إذا كان هناك بادينج سفلي */
 }
@@ -204,13 +204,15 @@ h1 {
     outline: none;
     cursor: pointer;
     padding: 10px 20px;
-    font-size: 1em;
+    font-size: 0.8em;
     font-weight: bold;
-    color: #555;
+    color: #555555;
     transition: all 0.3s ease;
     border-bottom: 3px solid transparent; /* خط سفلي شفاف كعلامة للتاب النشط */
     flex-grow: 1; /* لجعل الأزرار تتوزع بالتساوي */
     max-width: 120px; /* للتحكم في عرض التاب الواحد */
+    font-family: 'Cairo', sans-serif; 
+
 }
 
 .tab-button:hover {
@@ -268,12 +270,65 @@ h1 {
     margin: 0;
 }
 
-.tab-content ul li {
+/* .tab-content ul li {
     background-color: #f0f0f0;
     margin-bottom: 8px;
     padding: 10px;
     border-radius: 5px;
+} */
+
+/*---------------------------------------*/
+
+.tab-content ul li {
+    background-color: #f0f0f0;
+    margin-bottom: 8px;
+    padding: 10px 15px; /* زيادة البادينج الأفقي قليلاً */
+    border-radius: 25px; /* قيمة كبيرة لجعلها كبسولة (نصف الارتفاع الفعلي للعنصر تقريباً) */
+    display: inline-block; /* لجعل العنصر يأخذ عرض المحتوى فقط ويسمح بالهامش الأفقي */
+    margin-right: 8px; /* مسافة بين العناصر إذا كانت في سطر واحد */
+    text-align: center; /* توسيط النص داخل الكبسولة */
+    min-width: 120px; /* لتحديد عرض أدنى لجعلها أكثر تناسقاً */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* إضافة ظل خفيف */
+    color: #333; /* لون نص العميل */
+    font-weight: bold; /* جعل النص أكثر وضوحا */
 }
+
+/* لجعل القائمة نفسها تتوسط أفقياً */
+.tab-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* استخدام فليكس بوكس لتنظيم العناصر */
+    flex-wrap: wrap; /* للسماح للعناصر بالنزول لسطر جديد */
+    justify-content: center; /* توسيط العناصر أفقياً داخل الـ ul */
+    gap: 8px; /* مسافة بين العناصر بدلاً من margin-right على الـ li */
+}
+
+/* إزالة الـ margin-bottom من الـ li وإضافة gap للـ ul */
+.tab-content ul li {
+    background-color: #f0f0f0;
+    /* margin-bottom: 8px;  تم استبداله بـ gap في الـ ul */
+    padding: 10px 15px;
+    border-radius: 25px;
+    /* display: inline-block; // لم تعد ضرورية مع flexbox على الـ ul */
+    /* margin-right: 8px; // لم تعد ضرورية مع gap في الـ ul */
+    text-align: center;
+    min-width: 120px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    color: #333;
+    font-weight: bold;
+    flex-grow: 0; /* لمنع العناصر من التمدد لملء المساحة */
+    flex-shrink: 0; /* لمنع العناصر من الانكماش أكثر من اللازم */
+}
+/*---------------------------------------*/
+
+
+
+
+
+
+
+
 
 /* تأثير الظهور */
 @keyframes fadeIn {
@@ -289,8 +344,8 @@ h1 {
         margin-bottom: 10px;
     }
     .profile-logo {
-        width: 70px; /* تصغير حجم لوجو البروفايل */
-        height: 70px;
+        width: 90px; /* تصغير حجم لوجو البروفايل */
+        height: 90px;
         bottom: -35px; /* تعديل الموضع ليناسب الحجم الجديد */
     }
     .content-area {
