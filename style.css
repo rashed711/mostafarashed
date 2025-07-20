@@ -1,0 +1,328 @@
+/* الأنماط العامة للصفحة */
+body {
+    font-family: 'Cairo', sans-serif; /* استخدام خط Cairo */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    /* ----- إضافة صورة الخلفية للصفحة بأكملها ----- */
+    background-image: url('background.jpg'); /* تأكد من مسار الصورة واسمها */
+    background-size: cover; /* لجعل الصورة تغطي كامل الخلفية */
+    background-position: center; /* لتوسيط الصورة */
+    background-repeat: no-repeat; /* لمنع تكرار الصورة */
+    background-attachment: fixed; /* لجعل الصورة ثابتة عند التمرير */
+    /* ------------------------------------------- */
+    color: #333;
+    display: flex;
+    justify-content: center; /* توسيط البطاقة أفقياً */
+    align-items: flex-start; /* بدء البطاقة من الأعلى عمودياً */
+    min-height: 100vh; /* تأكد أن الصفحة تأخذ كامل ارتفاع الشاشة */
+    box-sizing: border-box;
+    padding-top: 20px; /* مسافة بادئة من أعلى الصفحة */
+    padding-bottom: 20px; /* مسافة بادئة من أسفل الصفحة */
+}
+
+/* حاوية البطاقة الرئيسية */
+.card-container {
+    background: #ffffff; /* خلفية بيضاء للبطاقة (ستغطيها جزئياً الـ content-area لاحقاً) */
+    border-radius: 15px; /* زوايا مستديرة */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* ظل خفيف للبطاقة */
+    max-width: 400px; /* أقصى عرض للبطاقة على الشاشات الكبيرة */
+    width: 90%; /* مرونة العرض على الشاشات الأصغر */
+    overflow: hidden; /* لإخفاء أي جزء يتجاوز الحدود المستديرة */
+    text-align: center; /* توسيط النصوص والصور داخل البطاقة */
+}
+
+/* قسم رأس البطاقة مع الخلفية واللوجو */
+.header-bg {
+    position: relative; /* لتحديد موضع العناصر الأبناء المطلقة */
+    height: 150px; /* ارتفاع قسم الخلفية */
+    background-color: #f0f0f0; /* لون احتياطي للخلفية إذا لم يتم تحميل الصورة */
+    background-size: cover; /* تغطية الصورة الخلفية للمساحة */
+    background-position: center; /* توسيط الصورة الخلفية */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* لوضع اللوجو في الجزء السفلي من الخلفية */
+    border-bottom: 2px solid #eee; /* خط فاصل بسيط بين الهيدر والمحتوى */
+}
+
+.header-logo-bg { /* الصورة الفعلية للخلفية المتموجة */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* لضمان تغطية الصورة للمساحة دون تشوه */
+    border-radius: 15px 15px 0 0; /* لجعل الزوايا العليا مدورة مثل البطاقة */
+    z-index: 0; /* للتأكد من أنها في الخلف */
+}
+
+.profile-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%; /* لجعل الصورة دائرية */
+    object-fit: cover; /* لضمان عدم تشوه الصورة */
+    border: 4px solid #fff; /* حدود بيضاء حول صورة البروفايل */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* ظل لصورة البروفايل */
+    position: absolute; /* لتحديد موضعها بالنسبة لـ header-bg */
+    bottom: -45px; /* لكي تظهر نصفها داخل وخارج منطقة الخلفية */
+    z-index: 2; /* لجعلها فوق جميع عناصر الهيدر */
+}
+
+/* منطقة المحتوى أسفل الهيدر (الجزء الأوسط) */
+.content-area {
+    padding: 60px 25px 25px; /* بادينج علوي أكبر لإعطاء مساحة لظهور اللوجو */
+    text-align: center;
+    /* ----- إضافة خلفية (صورة) لهذا الجزء ----- */
+    background-image: url('content_bg.jpg'); /* تأكد من مسار الصورة واسمها */
+    background-size: cover; /* لتغطية المساحة بالكامل */
+    background-position: center; /* لتوسيط الصورة */
+    background-repeat: no-repeat; /* لمنع تكرار الصورة */
+    /* يمكنك إضافة لون احتياطي في حالة عدم تحميل الصورة */
+    background-color: #f9f9f9; /* لون احتياطي للخلفية */
+    border-radius: 0 0 15px 15px; /* لجعل الزوايا السفلية مستديرة مثل البطاقة */
+    /* --------------------------------------- */
+    /* إذا كانت الصورة تجعل النص غير واضح، يمكنك إضافة تدرج لوني خفيف فوقها */
+    /* background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('content_bg.jpg'); */
+}
+
+h1 {
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.company-info {
+    color: #555;
+    font-size: 0.95em;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 30px; /* مسافة قبل زر حفظ جهة الاتصال */
+    text-align: center;
+}
+
+/* زر حفظ جهة الاتصال */
+.save-contact-button {
+    display: block; /* ليأخذ عرض كامل السطر */
+    width: calc(100% - 40px); /* عرض مع الأخذ في الاعتبار البادينج الجانبي */
+    max-width: 250px; /* أقصى عرض للزر */
+    margin: 0 auto 30px; /* توسيط الزر أفقياً و مسافة سفلية */
+    padding: 12px 25px;
+    background-color: #000; /* خلفية سوداء */
+    color: #fff; /* نص أبيض */
+    text-decoration: none;
+    border-radius: 30px; /* حدود مستديرة جداً */
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* تأثيرات عند التحويم */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* ظل للزر */
+}
+
+.save-contact-button:hover {
+    background-color: #333; /* لون أغمق عند التحويم */
+    transform: translateY(-2px); /* حركة خفيفة للأعلى */
+}
+
+/* شبكة روابط التواصل الاجتماعي */
+.links-grid {
+    display: grid;
+    /* أعمدة مرنة: 3 أعمدة بحد أدنى 100px لكل عمود */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px; /* مسافة بين عناصر الشبكة */
+    padding-top: 10px;
+    margin-bottom: 20px; /* مسافة سفلية للشبكة كلها */
+}
+
+.link-item {
+    display: flex;
+    flex-direction: column; /* الأيقونة فوق النص */
+    align-items: center; /* توسيط الأيقونة والنص */
+    text-decoration: none; /* إزالة خط تحت الرابط */
+    color: #555; /* لون نص الرابط */
+    font-size: 0.85em;
+    transition: transform 0.2s ease; /* تأثير حركة عند التحويم */
+}
+
+.link-item:hover {
+    transform: translateY(-5px); /* حركة خفيفة للأعلى عند التحويم */
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* لجعل الأيقونة دائرية */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6em; /* حجم الأيقونة داخل الدائرة */
+    color: #fff; /* لون الأيقونة (أبيض) */
+    margin-bottom: 8px; /* مسافة بين الأيقونة والنص */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* ظل خفيف للدائرة */
+}
+
+/* ألوان خلفية الأيقونات المختلفة */
+.call-bg-color { background-color: #007bff; } /* أزرق - لزر الاتصال */
+.link-bg-color-1 { background-color: #8c8c8c; } /* رمادي - لـ Submittal (إذا أعدتها) */
+.link-bg-color-2 { background-color: #007bff; } /* أزرق - لـ Website */
+.link-bg-color-3 { background-color: #28a745; } /* أخضر - لـ Address */
+.whatsapp-bg-color { background-color: #25d366; } /* أخضر واتساب */
+.telegram-bg-color { background-color: #0088cc; } /* أزرق تيليجرام */
+.facebook-bg-color { background-color: #3b5998; } /* أزرق فيسبوك */
+
+
+/* ----- أنماط قسم سابقة الأعمال (Portfolio Section) ----- */
+.portfolio-section {
+    padding: 25px;
+    background-color: #fff; /* خلفية بيضاء لقسم سابقة الأعمال */
+    border-radius: 0 0 15px 15px; /* استمرار استدارة الزوايا السفلية للبطاقة */
+    margin-top: -15px; /* لجعلها تلتصق بالقسم الذي قبلها إذا كان هناك بادينج سفلي */
+}
+
+.portfolio-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+    border-bottom: 2px solid #eee; /* خط تحت العنوان */
+    padding-bottom: 10px;
+}
+
+/* أنماط أزرار التابات */
+.tabs-navigation {
+    display: flex;
+    justify-content: center; /* توسيط التابات */
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd; /* خط فاصل أسفل التابات */
+}
+
+.tab-button {
+    background-color: transparent; /* خلفية شفافة للأزرار */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #555;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent; /* خط سفلي شفاف كعلامة للتاب النشط */
+    flex-grow: 1; /* لجعل الأزرار تتوزع بالتساوي */
+    max-width: 120px; /* للتحكم في عرض التاب الواحد */
+}
+
+.tab-button:hover {
+    color: #007bff; /* لون عند التحويم */
+    border-bottom: 3px solid #f0f0f0; /* خط خفيف عند التحويم */
+}
+
+.tab-button.active {
+    color: #007bff; /* لون التاب النشط */
+    border-bottom: 3px solid #007bff; /* خط سفلي للتاب النشط */
+}
+
+/* أنماط محتوى التابات */
+.tab-content {
+    display: none; /* إخفاء جميع محتويات التابات افتراضياً */
+    padding: 15px 0;
+    text-align: right; /* محاذاة النص لليمين للعربية */
+    animation: fadeIn 0.5s; /* تأثير ظهور سلس */
+}
+
+.tab-content.active {
+    display: block; /* إظهار التاب النشط */
+}
+
+.portfolio-item, .testimonial-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.portfolio-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.portfolio-item h3 {
+    color: #333;
+    font-size: 1.2em;
+    margin-top: 0;
+}
+
+.testimonial-item .author {
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 10px;
+}
+
+.tab-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tab-content ul li {
+    background-color: #f0f0f0;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* تأثير الظهور */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* التعديلات لاستجابة التصميم على الشاشات الصغيرة (الجوالات) */
+@media (max-width: 480px) {
+    .card-container {
+        width: 95%; /* زيادة عرض البطاقة قليلاً على الشاشات الصغيرة */
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .profile-logo {
+        width: 70px; /* تصغير حجم لوجو البروفايل */
+        height: 70px;
+        bottom: -35px; /* تعديل الموضع ليناسب الحجم الجديد */
+    }
+    .content-area {
+        padding: 45px 15px 15px; /* تقليل البادينج على الجوالات */
+    }
+    h1 {
+        font-size: 1.6em; /* تصغير حجم الخط للعنوان الرئيسي */
+    }
+    .company-info, .description {
+        font-size: 0.85em; /* تصغير حجم الخط للنصوص الوصفية */
+    }
+    .icon-circle {
+        width: 50px; /* تصغير حجم دائرة الأيقونات */
+        height: 50px;
+        font-size: 1.4em; /* تصغير حجم الأيقونة داخل الدائرة */
+    }
+    .links-grid {
+        /* أعمدة مرنة: 3 أعمدة بحد أدنى 80px لكل عمود على الشاشات الصغيرة جداً */
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 10px; /* تقليل المسافة بين عناصر الشبكة */
+    }
+    .save-contact-button {
+        font-size: 1em; /* تصغير حجم الخط لزر الحفظ */
+        padding: 10px 20px;
+    }
+
+    .portfolio-section {
+        padding: 15px; /* تقليل البادينج لقسم سابقة الأعمال على الجوالات */
+    }
+
+    .tab-button {
+        padding: 8px 10px; /* تقليل بادينج أزرار التابات */
+        font-size: 0.9em;
+    }
+}
