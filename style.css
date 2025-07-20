@@ -324,6 +324,53 @@ h1 {
 
 
 
+.contact-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.95em;
+    padding: 8px 0;
+    transition: color 0.3s ease, transform 0.2s ease;
+    justify-content: center; /* توسيط المحتوى داخل الـ contact-item */
+    width: 100%; /* اجعل العنصر يملأ العرض المتاح له لكي يعمل التوسيط */
+    /* قم بإزالة أي خاصية direction: rtl; إذا كانت موجودة هنا أو على الوالد */
+}
+
+.contact-item i {
+    font-size: 1.2em;
+    /* لتغيير التباعد بعد قلب الاتجاه، سنستخدم margin-right */
+    margin-right: 15px; /* مسافة بين الأيقونة والنص (على اليسار في LTR) */
+    margin-left: 0; /* تأكد من إزالة أي margin-left سابق */
+    color: #007bff;
+}
+
+/* نمط جديد لجعل النص من اليسار إلى اليمين */
+.ltr-text {
+    direction: ltr;
+    unicode-bidi: isolate-override; /* لضمان تطبيق الاتجاه بغض النظر عن السياق الأب */
+    text-align: left; /* لضمان محاذاة النص لليسار داخل الـ span */
+    flex-grow: 1; /* للسماح للنص بملء المساحة إذا كان هناك مساحة */
+    max-width: fit-content; /* للسماح للنص بأخذ عرضه الطبيعي */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -346,7 +393,7 @@ h1 {
     .profile-logo {
         width: 150px; /* تصغير حجم لوجو البروفايل */
         height: 150px;
-        bottom: -80px; /* تعديل الموضع ليناسب الحجم الجديد */
+        bottom: -55px; /* تعديل الموضع ليناسب الحجم الجديد */
     }
     .content-area {
         padding: 45px 15px 15px; /* تقليل البادينج على الجوالات */
