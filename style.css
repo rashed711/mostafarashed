@@ -344,8 +344,8 @@ h1 {
         margin-bottom: 10px;
     }
     .profile-logo {
-        width: 90px; /* تصغير حجم لوجو البروفايل */
-        height: 90px;
+        width: 150px; /* تصغير حجم لوجو البروفايل */
+        height: 150px;
         bottom: -35px; /* تعديل الموضع ليناسب الحجم الجديد */
     }
     .content-area {
