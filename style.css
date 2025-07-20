@@ -306,7 +306,7 @@ h1 {
 
 /* إزالة الـ margin-bottom من الـ li وإضافة gap للـ ul */
 .tab-content ul li {
-    background-color: #f0f0f0;
+    background-color: #d4d5d47e;
     /* margin-bottom: 8px;  تم استبداله بـ gap في الـ ul */
     padding: 10px 15px;
     border-radius: 25px;
@@ -315,7 +315,7 @@ h1 {
     text-align: center;
     min-width: 120px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    color: #333;
+    color: #323959;
     font-weight: bold;
     flex-grow: 0; /* لمنع العناصر من التمدد لملء المساحة */
     flex-shrink: 0; /* لمنع العناصر من الانكماش أكثر من اللازم */
