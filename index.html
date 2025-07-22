@@ -18,7 +18,7 @@
     <link rel="canonical" href="https://mostafarashed.com">
 
 
-    <meta property="og:title" content="مصطفى راشد - مستشار قانوني | استشارات قانونية وتجارية"> 
+    <meta property="og:title" content="مصطفى راشد - مستشار قانوني | استشارات قانونية وتجارية">
     <meta property="og:description"
         content="متخصص في الاستشارات القانونية والتجارية والعقارية في المملكة العربية السعودية. خبرة في صياغة العقود، الامتثال القانوني، وإدارة المخاطر.">
     <meta property="og:image" content="https://mostafarashed.com/my-photo1.jpg">
@@ -91,14 +91,13 @@
         <div class="portfolio-section">
             <h2>سابقة الأعمال</h2>
             <div class="tabs-navigation">
-                <button class="tab-button active" onclick="openTab(event, 'services')">خدماتي</button>
-                <button class="tab-button" onclick="openTab(event, 'clients')">عملاء</button>
-                <button class="tab-button" onclick="openTab(event, 'projects')">شهاداتي</button>
+                <button class="tab-button active" onclick="openTab(event, 'projects')">شهاداتي</button>
+                <button class="tab-button" onclick="openTab(event, 'services')">خدماتي</button>
+                <button class="tab-button" onclick="openTab(event, 'clients')">عملائي</button>
                 <button class="tab-button" onclick="openTab(event, 'testimonials')">رأي العملاء</button>
             </div>
 
-            <div id="services" class="tab-content active">
-                <!-- <p style="text-align: center; font-weight: bold;">بعض الخدمات التي اقدمها</p> -->
+            <div id="services" class="tab-content ">
                 <ul>
                     <li>التمثيل القضائي</li>
                     <li>الاستشارات القانونية</li>
@@ -114,33 +113,28 @@
                 </ul>
             </div>
 
-            <div id="projects" class="tab-content">
-                <!-- <p style="text-align: center; font-weight: bold;">مجموعة الشهادات الخاصة بي</p> -->
-
+            <div id="projects" class="tab-content active">
                 <div class="portfolio-item">
-                    <h3>* دكتوراه في القانون الجنائي</h3>
+                    <h3>دكتوراه في القانون الجنائي</h3>
                     <img src="doctorate.jpg" alt="Project 2" title="portfolio">
                     <p>تفاصيل الدكتوراه</p>
                 </div>
                 <hr>
                 <div class="portfolio-item">
-                    <h3>* ماجيستير في القانون الدولي</h3>
-                    <img src="Masters.jpg" alt="Project 2"  title="portfolio">
+                    <h3>ماجيستير في القانون الدولي</h3>
+                    <img src="Masters.jpg" alt="Project 2" title="portfolio">
                     <p>تفاصيل الماجيستير</p>
                 </div>
                 <hr>
                 <div class="portfolio-item">
-                    <h3>* بكالوريوس في الحقوق</h3>
-                    <img src="Bachelors.jpg" alt="Project 1"  title="portfolio">
+                    <h3>بكالوريوس في الحقوق</h3>
+                    <img src="Bachelors.jpg" alt="Project 1" title="portfolio">
                     <p>تفاصيل البكالوريوس</p>
                 </div>
                 <hr>
-
-
             </div>
 
             <div id="clients" class="tab-content">
-                <!-- <p style="text-align: center; font-weight: bold;">قائمة ببعض عملائنا الكرام الذين وثقوا بنا.</p> -->
                 <ul>
                     <li>مصرف الراجحي</li>
                     <li>شركة دار الأركان للتطوير العقاري</li>
@@ -150,15 +144,13 @@
             </div>
 
             <div id="testimonials" class="tab-content">
-                <!-- <p style="text-align: center; font-weight: bold;">رأي العملاء في خدماتنا</p> -->
-
                 <div class="testimonial-item">
                     <p class="author">- السيد/ خالد المحمدي</p>
                     <p>"خدمة ممتازة وجودة لا مثيل لها. أنصح بالتعامل معهم بشدة!"</p>
                 </div>
                 <hr>
                 <div class="testimonial-item">
-                    <p class="author">- المهندس/ سارة الفهد</p>
+                    <p class="author">- المهندسة/ سارة الفهد</p>
                     <p>"احترافية عالية والتزام بالمواعيد. تجربة رائعة."</p>
                 </div>
                 <hr>
@@ -168,40 +160,42 @@
 
     <script>
         function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
+            var i, tabcontent, tabbuttons;
+
+            // إخفاء جميع محتويات التبويبات وإزالة كلاس active
             tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
             }
-            tablinks = document.getElementsByClassName("tab-button");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
+
+            // إزالة الكلاس "active" من جميع أزرار التبويبات
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
             }
+
+            // إظهار التبويب الحالي وإضافة الكلاس "active" للزر والتبويب
             document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
         }
 
-        // افتح التاب الافتراضي عند تحميل الصفحة
+        // تشغيل التبويب الافتراضي عند تحميل الصفحة
         document.addEventListener("DOMContentLoaded", function () {
-            // قم بتفعيل التاب الافتراضي "خدماتي" وزر التاب الخاص به
-            document.getElementById("services").style.display = "block";
-            // للتأكد من أن زر "خدماتي" هو النشط عند التحميل
-            document.querySelector(".tabs-navigation .tab-button[onclick*='services']").classList.add("active");
-
-            // تأكد من إزالة active من أي تاب آخر قد يكون لديه active في HTML بشكل خاطئ
-            var initialActiveTabs = document.querySelectorAll(".tab-content.active");
-            initialActiveTabs.forEach(function (tab) {
-                if (tab.id !== "services") {
-                    tab.classList.remove("active");
-                    tab.style.display = "none";
-                }
-            });
-            var initialActiveButtons = document.querySelectorAll(".tab-button.active");
-            initialActiveButtons.forEach(function (button) {
-                if (!button.onclick.toString().includes("services")) {
-                    button.classList.remove("active");
-                }
-            });
+            // قم بتفعيل التاب الافتراضي "شهاداتي" وزر التاب الخاص به
+            // نقوم بمحاكاة النقر على الزر النشط افتراضياً لضمان تطبيق الأنماط والدالة بشكل كامل
+            var defaultTabButton = document.querySelector('.tabs-navigation .tab-button.active');
+            if (defaultTabButton) {
+                // نستخدم click() لتشغيل الدالة openTab بنفس طريقة تفاعل المستخدم
+                defaultTabButton.click();
+            } else {
+                // في حالة عدم وجود زر active في HTML لسبب ما،
+                // نقوم بتفعيل 'projects' يدوياً كخيار احتياطي
+                document.getElementById("projects").style.display = "block";
+                document.getElementById("projects").classList.add("active");
+                document.querySelector(".tabs-navigation .tab-button[onclick*='projects']").classList.add("active");
+            }
         });
     </script>
 
